@@ -12,7 +12,7 @@ public:
         if(nums[n-1]>nums[0]){
             c++;
         }
-        if(c==0||c==1) return true;
+        if(c<2) return true;
         else return false;
     }
 };
