@@ -4,14 +4,9 @@ public:
         int k=0;
         for(int i=0;i<nums.size();i++){
             if(nums[i]!=0){
-                nums[k]=nums[i];
+                swap(nums[i],nums[k]);
                 k++;
             }
         }
-            while(k<nums.size()){
-                nums[k]=0;
-                k++;
-            }
-
     }
 };
