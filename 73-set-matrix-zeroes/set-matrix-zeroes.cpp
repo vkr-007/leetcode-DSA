@@ -2,8 +2,8 @@ class Solution {
 public:
   
     void setZeroes(vector<vector<int>>& v) {
-        set<int> r;
-        set<int> c;
+        unordered_set<int> r;
+        unordered_set<int> c;
         for(int i=0;i<v.size();i++){
             for(int j=0;j<v[0].size();j++){
                 if(v[i][j]==0){
