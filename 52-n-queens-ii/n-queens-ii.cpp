@@ -3,7 +3,7 @@ public:
     int ans=0 ;
     bool issafe(vector<string> &b, int r, int c, int n){
         // col
-        for(int i=0;i<n;i++){
+        for(int i=0;i<r;i++){
             if(b[i][c]=='Q') return false;
 
         }
