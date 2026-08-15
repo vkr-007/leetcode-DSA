@@ -39,7 +39,8 @@ public:
                     solve(b, r + 1, n);
 
                     // backtrack, removing queen
-                    b[r][c] = '.';
+                    b[r][c] = '.';// helps to chec every posibility
+                    
                 }
             }
         }
