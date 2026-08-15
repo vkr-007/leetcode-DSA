@@ -21,7 +21,8 @@ public:
             ans.push_back(b);
             return ;
         }
-        for(int c=0;c<n;c++){
+        for(int c=0;c<n;c++){// check every column for each row
+        
             if(issafe(b,r,c,n)){
                 b[r][c]='Q';
                 solve(b,r+1,n);
