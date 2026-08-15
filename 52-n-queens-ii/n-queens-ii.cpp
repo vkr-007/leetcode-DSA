@@ -1,20 +1,56 @@
 class Solution {
 public:
-    int totalNQueens(int n) {
-        int ans[] = {
-            0,   // n = 0
-            1,   // n = 1
-            0,   // n = 2
-            0,   // n = 3
-            2,   // n = 4
-            10,  // n = 5
-            4,   // n = 6
-            40,  // n = 7
-            92,  // n = 8
-            352  // n = 9
-        };
+    int ans = 0;
 
-        return ans[n];
+    bool issafe(vector<string>& b, int r, int c, int n) {
+
+        // column
+        for(int i = 0; i < r; i++) {
+            if(b[i][c] == 'Q')
+                return false;
+        }
+
+        // upper-left diagonal
+        for(int i = r-1, j = c-1; i >= 0 && j >= 0; i--, j--) {
+            if(b[i][j] == 'Q')
+                return false;
+        }
+
+        // upper-right diagonal
+        for(int i = r-1, j = c+1; i >= 0 && j < n; i--, j++) {
+            if(b[i][j] == 'Q')
+                return false;
+        }
+
+        return true;
     }
-    
+
+    void solve(vector<string>& b, int r, int n) {
+
+        if(r == n) {
+            ans++;
+            return;
+        }
+
+        for(int c = 0; c < n; c++) {
+
+            if(issafe(b, r, c, n)) {
+
+                b[r][c] = 'Q';
+
+                solve(b, r + 1, n);
+
+                b[r][c] = '.';
+            }
+        }
+    }
+
+    int totalNQueens(int n) {
+
+        vector<string> b(n, string(n, '.'));
+
+        solve(b, 0, n);
+
+        return ans;
+    }
 };
