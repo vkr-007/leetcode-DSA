@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<vector<string>> ans;
+    int ans=0 ;
     bool issafe(vector<string> &b, int r, int c, int n){
         // col
         for(int i=0;i<n;i++){
@@ -18,11 +18,11 @@ public:
     }
     void solve(vector<string> &b, int r, int n){
         if(r==n){
-            ans.push_back(b);
+            ans++;
             return ;
         }
         for(int c=0;c<n;c++){// check every column for each row
-        
+
             if(issafe(b,r,c,n)){
                 b[r][c]='Q';
                 solve(b,r+1,n);
@@ -33,6 +33,6 @@ public:
     int totalNQueens(int n) {
         vector<string> b(n,string(n,'.'));
         solve(b,0,n);
-        return ans.size();
+        return ans;
     }
 };
