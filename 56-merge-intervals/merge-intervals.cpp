@@ -5,12 +5,13 @@ public:
             return {};
         sort(v.begin(),v.end());
         vector<vector<int>> ans;
-        for(auto x: v){
-            if(ans.empty()|| ans.back()[1]<x[0]){
-                ans.push_back(x);
+        ans.push_back(v[0]);
+        for(int i=1;i<v.size();i++){
+            if(ans.back()[1]<v[i][0]){
+                ans.push_back(v[i]);
             }
             else{
-                ans.back()[1]=max(ans.back()[1],x[1]);
+                ans.back()[1]=max(ans.back()[1],v[i][1]);
             }
         }
 
