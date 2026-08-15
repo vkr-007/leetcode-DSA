@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& v) {
+        if(v.empty())
+            return {};
         sort(v.begin(),v.end());
         vector<vector<int>> ans;
         for(auto x: v){
@@ -12,7 +14,7 @@ public:
             }
         }
 
-        
-        return ans;
+         return ans;
+
     }
 };
