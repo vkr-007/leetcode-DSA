@@ -1,7 +1,7 @@
 class Solution {
 public:
     int largestInteger(vector<int>& nums, int k) {
-        int n = nums.size() ;
+        int n = nums.size();
         unordered_map<int, int> f;
         for (auto x : nums) {
             f[x]++;
@@ -9,14 +9,15 @@ public:
         if (k == n) {
             return *max_element(nums.begin(), nums.end());
         } else if (k > 1 && n > k) {
+            int ans = -1;
 
-            if (f[nums[0]] == 1 && f[nums[n-1]] == 1) {
-                return max(nums[0], nums[n-1]);
-            } else if (f[nums[0]] > 1 && f[nums[n-1]] == 1) {
-                return nums[n-1];
-            } else if (f[nums[0]] == 1 && f[nums[n-1]] > 1) {
-                return nums[0];
-            }
+            if (f[nums[0]] == 1)
+                ans = max(ans, nums[0]);
+
+            if (f[nums[n - 1]] == 1)
+                ans = max(ans, nums[n - 1]);
+
+            return ans;
         } else
 
         {
