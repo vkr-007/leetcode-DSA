@@ -7,7 +7,7 @@ public:
             int mid= lo+(hi-lo)/2;
             long long hours=0;
             for(auto x: v){
-                hours+= ceil((double)x/mid);
+                hours+= ceil((double)x/mid);//calculatig total hours to compare with given hours
 
             }
             if(hours<=h){
