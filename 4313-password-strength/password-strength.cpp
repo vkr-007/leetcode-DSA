@@ -1,27 +1,27 @@
 class Solution {
 public:
-     //set upproach
+// set approach
+
     int passwordStrength(string password) {
-        unordered_set<char> st;
-        for(auto x:password){
-            st.insert(x);
+        bool seen[256] = {};
+        int ans = 0;
+
+        for(char c : password) {
+            if(seen[c])
+                continue;
+
+            seen[c] = true;
+
+            if(c >= 'a' && c <= 'z')
+                ans += 1;
+            else if(c >= 'A' && c <= 'Z')
+                ans += 2;
+            else if(c >= '0' && c <= '9')
+                ans += 3;
+            else
+                ans += 5;
         }
-        int a=0;
-        for(auto x: st){
-            if(isupper(x)){
-                a+=2;
-            }
-            else if(x=='!'||x=='@'||x=='#'||x=='$'){
-                a+=5;
-            }else if(islower(x)){
-                a++;
-            }
-            else{
-                if(isdigit(x)){
-                    a+=3;
-                }
-            }
-        }
-        return a;
+
+        return ans;
     }
-};;
+};
