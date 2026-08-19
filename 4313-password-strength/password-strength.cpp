@@ -1,5 +1,6 @@
 class Solution {
 public:
+     //set upproach
     int passwordStrength(string password) {
         unordered_set<char> st;
         for(auto x:password){
