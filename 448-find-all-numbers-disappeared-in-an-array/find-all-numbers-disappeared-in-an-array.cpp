@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
+    vector<int> findDisappearedNumbers(vector<int>& nums) 
+       { //using bool to check occurance
         vector<bool> ap(nums.size()+1,false);
         for(auto x: nums){
             if(ap[x]==true){
