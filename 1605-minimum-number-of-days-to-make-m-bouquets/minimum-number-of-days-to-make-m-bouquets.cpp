@@ -5,7 +5,6 @@ public:
             return -1;
         int lo = *min_element(v.begin(), v.end());
         int hi = *max_element(v.begin(), v.end());
-        //using break to reduce time complexity
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             int flower = 0;
@@ -19,14 +18,13 @@ public:
                     if (flower == k) {
                         bouquets++;
                         flower = 0;
-                         if(bouquets == m)
-                break;
+                        if (bouquets == m)
+                            break;
                     }
                 } else {
                     flower = 0;
                 }
             }
-
 
             if (bouquets >= m) {
                 hi = mid - 1;
