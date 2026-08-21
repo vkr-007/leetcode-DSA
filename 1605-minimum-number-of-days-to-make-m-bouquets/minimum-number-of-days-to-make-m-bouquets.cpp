@@ -5,7 +5,7 @@ public:
             return -1;
         int lo = *min_element(v.begin(), v.end());
         int hi = *max_element(v.begin(), v.end());
-        //break
+        //using break to reduce time complexity
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             int flower = 0;
