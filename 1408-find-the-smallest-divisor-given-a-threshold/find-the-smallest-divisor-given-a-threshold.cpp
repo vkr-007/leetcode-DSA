@@ -10,6 +10,8 @@ public:
             int a=0;
             for(auto x: nums){
                 a+=(x + mid - 1) / mid;
+                 if(a > threshold)
+                    break;
             }
             if(a>threshold){
                 lo=mid+1;
