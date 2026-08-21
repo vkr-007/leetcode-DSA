@@ -3,6 +3,8 @@ public:
     int smallestDivisor(vector<int>& nums, int threshold) {
         int lo=1;
         int hi= *max_element(nums.begin(),nums.end());
+
+        //ciel
         while(lo<=hi){
             int mid= lo+(hi-lo)/2;
             int a=0;
