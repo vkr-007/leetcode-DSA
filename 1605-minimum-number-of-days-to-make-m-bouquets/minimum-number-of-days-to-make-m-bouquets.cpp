@@ -16,6 +16,7 @@ public:
         }
         return bouqets >= m;
     }
+    //possible checks if no of days is sufficentt or not
     int minDays(vector<int>& v, int m, int k) {
         if ((long long)m * k > v.size())
             return -1;
