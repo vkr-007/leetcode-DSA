@@ -1,7 +1,9 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
+
         if(s1.size()>s2.size()) return false;
+        //vector to count frequencies
         vector<int> v1(26, 0);
         vector<int> v2(26, 0);
         for (auto x : s1) {
