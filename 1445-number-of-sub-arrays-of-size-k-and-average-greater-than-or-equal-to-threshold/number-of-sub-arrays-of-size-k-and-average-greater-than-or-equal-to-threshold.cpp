@@ -5,7 +5,7 @@ public:
         for (int i = 0; i < k; i++) {
             sum += nums[i];
         }
-        int ans = 0;
+        int ans = 0;//sliding windows
         for (int i = k; i < nums.size(); i++) {
             if (sum / k >= threshold) {
                 ans++;
@@ -15,6 +15,7 @@ public:
         }
         if (sum / k >= threshold)
             ans++;
+
         return ans;
     }
 };
