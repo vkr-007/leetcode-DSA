@@ -1,23 +1,21 @@
 class Solution {
 public:
     int maxVowels(string s, int k) {
-        int count = 0;
+        bool vowel[128] = {};
 
-        for(int i = 0; i < k; i++){
-            if(string("aeiou").find(s[i]) != string::npos)
-                count++;
-        }
+        vowel['a'] = vowel['e'] = vowel['i'] = vowel['o'] = vowel['u'] = true;
 
-        int ans = count;
+        int cnt = 0;
 
-        for(int i = k; i < s.size(); i++){
-            if(string("aeiou").find(s[i]) != string::npos)
-                count++;
+        for(int i = 0; i < k; i++)
+            cnt += vowel[s[i]];
 
-            if(string("aeiou").find(s[i-k]) != string::npos)
-                count--;
+        int ans = cnt;
 
-            ans = max(ans, count);
+        for(int i = k; i < s.size(); i++) {
+            cnt += vowel[s[i]];
+            cnt -= vowel[s[i-k]];
+            ans = max(ans, cnt);
         }
 
         return ans;
