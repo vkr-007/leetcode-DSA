@@ -8,6 +8,7 @@ public:
                 st+=customers[i];
             }
         }
+        //checking for satisfed in sliding window
         int t1=0;
         for(int i=0;i<k;i++){
               if(grumpy[i] == 1) {
