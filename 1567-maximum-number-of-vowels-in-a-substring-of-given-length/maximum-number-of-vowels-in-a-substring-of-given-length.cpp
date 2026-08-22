@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxVowels(string s, int k) {
-        int v=0;
+        int v=0;//sliding winow to count vowels
         for(int i=0;i<k;i++){
             if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'){
               v++;
