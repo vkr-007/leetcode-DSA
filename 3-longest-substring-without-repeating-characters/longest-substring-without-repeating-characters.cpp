@@ -12,7 +12,7 @@ public:
                     v1[s[l] ] = false;
                     l++;
                 }
-            
+            //using bool vector to avoid duplicates
             v1[s[r]] = true;
             ans= max(ans,r-l+1);
         }
