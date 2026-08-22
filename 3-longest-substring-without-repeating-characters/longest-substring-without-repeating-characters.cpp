@@ -1,6 +1,7 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        //variable sliding windows
         vector<bool> v1(128, false);
         int l = 0;
         int ans = 0;
