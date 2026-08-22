@@ -1,20 +1,21 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        //variable sliding windows
-        vector<bool> v1(128, false);
+        vector<int> last(128, -1);
+
         int l = 0;
         int ans = 0;
-        for (int r = 0; r < s.size(); r++) {
-                
-                while (v1[s[r]]) {
 
-                    v1[s[l] ] = false;
-                    l++;
-                }
-            v1[s[r]] = true;
-            ans= max(ans,r-l+1);
+        for(int r = 0; r < s.size(); r++) {
+
+            if(last[s[r]] >= l)
+                l = last[s[r]] + 1;
+
+            last[s[r]] = r;
+
+            ans = max(ans, r - l + 1);
         }
+
         return ans;
     }
 };
