@@ -2,6 +2,7 @@ class Solution {
 public:
     int firstMissingPositive(vector<int>& v) {
         int n=v.size();
+        //placing number at num-1 index
       for(int i=0;i<n;i++){
          while(v[i]>=1 && v[i]<=n&& v[i]!=v[v[i]-1]){
                    swap(v[i],v[v[i]-1]);
