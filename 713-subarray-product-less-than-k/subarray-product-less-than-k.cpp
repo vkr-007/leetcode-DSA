@@ -5,7 +5,7 @@ public:
         int l=0;
         int p=1;
         int ans=0;
-     
+      //window size gives no of contiginous subarray
         for(int r=0;r<nums.size();r++){
             p*=nums[r];
             while(p>=k){
