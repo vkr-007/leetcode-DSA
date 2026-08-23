@@ -12,7 +12,7 @@ public:
              maxones= max(maxones,ones);
              while(((r-l+1)-maxones)>k){
                  if(nums[l] == 1) {
-                    ones--;
+                    ones--;// remember to check ones
                 }
                 l++;
              }
