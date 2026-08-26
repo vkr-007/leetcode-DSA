@@ -9,6 +9,8 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
+        //using slow and fast pointers
+        
          ListNode * slow= head;
           ListNode *fast= head;
           while(fast && fast->next){
