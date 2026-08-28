@@ -13,7 +13,7 @@ public:
             used.insert(nums[i]);
             swap(nums[idx],nums[i]);
             permute(nums,idx+1,ans);
-            swap(nums[idx],nums[i]);
+            swap(nums[idx],nums[i]);//backtracking
         }
     }
 
