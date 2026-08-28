@@ -8,7 +8,7 @@ public:
         unordered_set<int> used;
         for(int i= idx;i<nums.size();i++){
             if(used.count(nums[i])){
-                continue;
+                continue;//check if num is already occoured
             }
             used.insert(nums[i]);
             swap(nums[idx],nums[i]);
