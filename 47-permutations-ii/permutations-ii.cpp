@@ -7,9 +7,9 @@ public:
         }
         unordered_set<int> used;
         for(int i= idx;i<nums.size();i++){
-            if(used.count(nums[i])){
-                continue;//check if num is already occoured
-            }
+             if (used.count(nums[i]))
+                continue;
+
             used.insert(nums[i]);
             swap(nums[idx],nums[i]);
             permute(nums,idx+1,ans);
