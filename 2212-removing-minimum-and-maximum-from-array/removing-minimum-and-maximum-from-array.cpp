@@ -51,5 +51,6 @@ public:
             j--;
         }
         return min(start, temp);
+        //te
     }
 };
