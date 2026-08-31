@@ -15,27 +15,27 @@ public:
         ListNode* temp = head;
         ListNode* temp2 = head->next;
         int i = 1;
-        vector<int> p;
+        int l=-1;
+        int first=-1;
+        int mind=INT_MAX;
         while (temp2 && temp2->next) {
-            if (temp->val > temp2->val && temp2->val < temp2->next->val) {
-                p.push_back(i);
-            }
-            if (temp->val < temp2->val && temp2->val > temp2->next->val) {
-                p.push_back(i);
+            if ((temp->val > temp2->val && temp2->val < temp2->next->val)||
+              ( temp->val < temp2->val && temp2->val > temp2->next->val)) 
+            {
+                if(first==-1){
+                    first=i;
+                }else{
+                    mind=min(mind,i-l);
+                }
+                l=i;
             }
             i++;
-            temp = temp->next;
+            temp = temp2;
             temp2 = temp2->next;
         }
-        vector<int> ans = {-1, -1};
-         if (p.size() < 2) {
-            return  {-1, -1};
+        if(first==l){
+          return {-1,-1};
         }
-        int mn=INT_MAX;
-            for (int i = 1; i < p.size(); i++) {
-                mn = min(mn, p[i] - p[i - 1]);
-            }
-        
-        return {mn,p.back() - p.front()};
+        return {mind,l-first};
     }
 };
