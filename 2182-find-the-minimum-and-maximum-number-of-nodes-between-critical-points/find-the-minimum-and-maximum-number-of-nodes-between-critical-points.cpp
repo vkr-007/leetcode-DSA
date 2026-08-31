@@ -11,7 +11,7 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        //vector approach
+        //optimal complexity
         ListNode* temp = head;
         ListNode* temp2 = head->next;
         int i = 1;
