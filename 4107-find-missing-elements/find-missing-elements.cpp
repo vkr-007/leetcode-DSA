@@ -3,7 +3,7 @@ public:
     vector<int> findMissingElements(vector<int>& nums) {
         int s= nums[0];
         int l= nums[0];
-        set<int> n;
+        unordered_set<int> n;
         for(auto x:nums){ 
             n.insert(x);
             s=min(s,x);
