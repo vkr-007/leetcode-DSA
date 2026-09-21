@@ -12,7 +12,7 @@ public:
                 int new_r = ((long long)old_r * nums[i] % k) % k;
                 currcount[new_r] += prevcount[old_r];
             }
-            prevcount =currcount;
+            prevcount =move(currcount);
             for (int x = 0; x < k; x++) {
                 result[x] += prevcount[x];
             }
