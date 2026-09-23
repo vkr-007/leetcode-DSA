@@ -1,19 +1,17 @@
 class Solution {
 public:
     int minimumPushes(string word) {
-       unordered_map<char, int> m;
-        int n=word.size();
-        for(auto x:word ){
-            m[x]++;
+        vector<int> f(26, 0);
+        for (auto x : word) {
+            f[x - 'a']++;
         }
-        vector<pair<char, int>> mp(m.begin(), m.end());
-        sort(mp.begin(),mp.end(),[](auto &a,auto &b){
-            return a.second>b.second;
-        }  );
-        int ans=0;
-        int i=0;
-        for(auto x:mp){
-            ans+=((i/8)+1)*x.second;
+        sort(f.rbegin(), f.rend());
+        int ans = 0;
+        int i = 0;
+        for (auto x : f) {
+            if (x == 0)
+                break;
+            ans += ((i / 8) + 1) * x;
             i++;
         }
         return ans;
