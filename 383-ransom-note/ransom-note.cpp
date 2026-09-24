@@ -1,20 +1,16 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        vector<int> f1(26, 0);
-        for (auto x : ransomNote) {
-            f1[x - 'a']++;
+         int count [26] = {0};
+        for(char ch : magazine){
+            count[ch-'a']++;
         }
-        vector<int> f2(26, 0);
-        for (auto x : magazine) {
-            f2[x - 'a']++;
-        }
-        for (int i = 0; i < 26; i++) {
-            if (f1[i] > f2[i]) {
+        for(char ch : ransomNote){
+            if(count[ch-'a']==0){
                 return false;
             }
-           
+            count[ch-'a']--;
         }
-         return true;
-        }
+        return true;
+    }
     };
