@@ -1,26 +1,25 @@
 class Solution {
 public:
-    int count(string s, char ch,int k){
-        int l=0;
-        int c=0;
-        int ans=0;
-        for(int i=0;i<s.size();i++){
-            if(s[i]==ch){
-                c++;
+    int maxConsecutiveAnswers(string a, int k) {
+        int c = 0, t = 0, f = 0;
+        int ans = 0;
+        int left=0;
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i] == 'T') {
+                t++;
+            }else{
+                f++;
             }
-            while(c>k){
-                if(s[l]==ch){
-                    c--;
+            while(t>k && f>k){
+                if(a[left]=='T'){
+                    t--;
+                }else{
+                    f--;
                 }
-                l++;
+                left++;
             }
-            ans=max(ans,i-l+1);
+            ans=max(ans,i-left+1);
         }
         return ans;
-    }
-    int maxConsecutiveAnswers(string a, int k) {
-       int tl=count(a,'F',k);
-       int fl=count(a,'T',k);
-       return max(tl,fl);
     }
 };
