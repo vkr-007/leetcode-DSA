@@ -11,11 +11,8 @@ public:
             if(t==1){
                 return -1;
             }
-           op += t / 3;
 
-            if(t % 3 != 0){
-                op++;
-            }
+            op += (t + 2) / 3;
 
         }
     return op;
