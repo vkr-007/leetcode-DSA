@@ -1,20 +1,30 @@
 class Solution {
 public:
     vector<int> frequencySort(vector<int>& nums) {
+        unordered_map<int, int> mp;
 
-        unordered_map<int,int> mp;
-
-        for(int x : nums)
+        for(auto x : nums) {
             mp[x]++;
+        }
 
-        sort(nums.begin(), nums.end(), [&](int a, int b) {
+        vector<pair<int, int>> v(mp.begin(), mp.end());
 
-            if(mp[a] != mp[b])
-                return mp[a] < mp[b];
+        sort(v.begin(), v.end(), [](auto& a, auto& b) {
+            if(a.second != b.second)
+                return a.second < b.second;
 
-            return a > b;
+            return a.first > b.first;
         });
 
-        return nums;
+        vector<int> ans;
+
+        for(auto x : v) {
+            while(x.second != 0) {
+                ans.push_back(x.first);
+                x.second--;
+            }
+        }
+
+        return ans;
     }
 };
