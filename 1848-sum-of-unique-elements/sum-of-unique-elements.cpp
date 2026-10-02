@@ -1,22 +1,17 @@
 class Solution {
 public:
     int sumOfUnique(vector<int>& nums) {
-        set<int> unique, duplicate;
+        int freq[101] = {0};
 
-        for(int x : nums) {
-            if(unique.find(x) != unique.end()) {
-                duplicate.insert(x);
-                unique.erase(x);
-            }
-            else if(duplicate.find(x) == duplicate.end()) {
-                unique.insert(x);
-            }
-        }
+        for(int x : nums)
+            freq[x]++;
 
         int sum = 0;
 
-        for(int x : unique)
-            sum += x;
+        for(int i = 1; i <= 100; i++) {
+            if(freq[i] == 1)
+                sum += i;
+        }
 
         return sum;
     }
