@@ -1,24 +1,25 @@
 class Solution {
 public:
     string reformatNumber(string number) {
-        string s;
-        
-        for(char c : number)
-            if(c != ' ' && c != '-')
-                s += c;
-
         string ans;
-        int n = s.size(), i = 0;
+        int count = 0;
 
-        while(n - i > 4) {
-            ans += s.substr(i, 3) + "-";
-            i += 3;
+        for(char c : number) {
+            if(c == ' ' || c == '-') continue;
+
+            ans.push_back(c);
+
+            if(++count == 3) {
+                ans.push_back('-');
+                count = 0;
+            }
         }
 
-        if(n - i == 4)
-            ans += s.substr(i, 2) + "-" + s.substr(i + 2, 2);
-        else
-            ans += s.substr(i);
+        if(ans.back() == '-')
+            ans.pop_back();
+
+        if(count == 1)
+            swap(ans[ans.size()-2], ans[ans.size()-3]);
 
         return ans;
     }
