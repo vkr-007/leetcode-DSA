@@ -11,6 +11,7 @@ public:
 
         }
         int n=word.size();
+        //temp
         return (c==n|| s==n||(c==1 && isupper(word[0])));
     }
 };
