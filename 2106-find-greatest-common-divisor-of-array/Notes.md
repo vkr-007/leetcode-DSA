@@ -1,1 +1,1 @@
-<h2>find-greatest-common-divisor-of-array Notes</h2><hr>[ Time taken: 23m 27s ]
+<h2>find-greatest-common-divisor-of-array Notes</h2><hr>[ Time taken: 24m 0s ]
