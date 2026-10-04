@@ -1,11 +1,18 @@
 class Solution {
 public:
     long long maxProduct(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++){
-            nums[i]=abs(nums[i]);
+        int n = nums.size();
+        long long f= 0;
+        long long s= 0;
+
+        for (int i = 0; i < n; ++i) {
+            if (abs(nums[i]) > abs(f)) {
+                s = f;
+                f = nums[i];
+            } else if (abs(nums[i]) > abs(s)) {
+                s = nums[i];
+            }
         }
-        sort(nums.rbegin(),nums.rend());
-        return 1LL * 100000* nums[0]*nums[1];
-        //temp
+        return 1LL * 100000 * abs(f) * abs(s);
     }
 };
