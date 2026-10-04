@@ -6,5 +6,6 @@ public:
         }
         sort(nums.rbegin(),nums.rend());
         return 1LL * 100000* nums[0]*nums[1];
+        //temp
     }
 };
