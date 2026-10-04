@@ -10,14 +10,14 @@ public:
     }
 
     int findGCD(vector<int>& nums) {
-        int m1 = INT_MAX;
-        int m2 = INT_MIN;
+        int s = INT_MAX;
+        int b = INT_MIN;
 
         for (int x : nums) {
-             m1 = min(m1, x);
-            m2 = max(m2, x);
+            s = min(s, x);
+            b = max(b, x);
         }
 
-        return gcd(m1, m2);
+        return gcd(b, s);
     }
 };
