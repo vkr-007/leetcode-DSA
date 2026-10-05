@@ -18,13 +18,6 @@ public:
             }
         }
 
-        int ans = 0;
-
-        for (int i = 2; i < n; i++) {
-            if (prime[i])
-                ans++;
-        }
-
-        return ans;
+        return count(prime, prime + n, true);
     }
 };
