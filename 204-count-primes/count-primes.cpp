@@ -17,7 +17,7 @@ public:
                 }
             }
         }
-
+        //temp
         return count(prime, prime + n, true);
     }
 };
