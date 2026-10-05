@@ -9,7 +9,7 @@ public:
                     ans++;
             }
         }
-        //temp
+
 
         return ans;
     }
