@@ -2,12 +2,13 @@ class Solution {
 public:
     int minInsertions(string s) {
     int op=0;
+    int n=s.size();
     int ans=0;
-    for(int i=0;i<s.size();i++){
+    for(int i=0;i<n;i++){
         if(s[i]=='('){
             op++;
         }else{
-            if(i+1<s.size() && s[i+1]==')'){
+            if(i+1<n && s[i+1]==')'){
                 i++;
             }else{
                 ans++;
@@ -19,6 +20,7 @@ public:
             }
         }
     }
-    return ans+ (2*op);
+    ans+=2*op;
+    return ans;
     }
 };
