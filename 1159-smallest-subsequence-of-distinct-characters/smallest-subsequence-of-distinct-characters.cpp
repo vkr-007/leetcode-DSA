@@ -2,7 +2,7 @@ class Solution {
 public:
     string smallestSubsequence(string s) {
         int n= s.size();
-        stack<char> st;
+        string r;
         vector<bool> taken(26,false);
         vector<int> lastidx(26);
         for(int i=0;i<n;i++){
@@ -11,19 +11,13 @@ public:
         for(int i=0;i<n;i++){
             int idx=s[i]-'a';
             if(taken[idx])continue;
-            while(!st.empty() && lastidx[st.top()-'a']>i && s[i]<st.top() ){
-                  taken[st.top()-'a']=false;
-                  st.pop();
+            while(r.length()>0 && lastidx[r.back()-'a']>i && s[i]<r.back() ){
+                  taken[r.back()-'a']=false;
+                  r.pop_back();
             }
-            st.push(s[i]);
+            r.push_back(s[i]);
             taken[idx]=true;
         }
-        string r;
-        while(!st.empty()){
-            r.push_back(st.top());
-            st.pop();
-        }
-        reverse(r.begin(),r.end());
-        return r;
+      return r;
     }
 };
