@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long interchangeableRectangles(vector<vector<int>>& rectangles) {
-        map<pair<int,int>,long long> mp;
+      map  <pair<int,int>,long long> mp;
          long long ans = 0;
         for(auto x:rectangles){
             int w=x[0];
@@ -11,6 +11,7 @@ public:
             h/=g;
             ans+=mp[{w,h}];
             mp[{w,h}]++;
+            //temp
         }
         return ans;
     }
