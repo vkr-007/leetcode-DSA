@@ -1,24 +1,14 @@
 class Solution {
 public:
-    struct comp{
-        bool operator()(string a, string b){
-            if(a.size()!=b.size()){
-                return a.size()<b.size();
-
-            }
-            return a<b;
-        }
-    };
     string kthLargestNumber(vector<string>& nums, int k) {
-        priority_queue<string,vector<string>,comp> pq;
-        for(auto x: nums){
-            pq.push(x);
-            
+        int n = nums.size();
+        auto lamda = [](const string& a, const string& b) {
+            if (a.size() != b.size())
+                return a.size() < b.size();
+            return a < b;
+        };
+        nth_element(nums.begin(), nums.begin() + n - k, nums.end(), lamda);
 
-        }while(k>1){
-                pq.pop();
-                k--;
-            }
-        return pq.top();
+        return nums[n - k];
     }
 };
