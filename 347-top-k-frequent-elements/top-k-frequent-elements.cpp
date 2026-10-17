@@ -7,17 +7,18 @@ public:
             mp[x]++;
         }
 
-        priority_queue<pair<int,int>> pq;
+        vector<pair<int,int>> v;
 
         for(auto it : mp) {
-            pq.push({it.second, it.first});
+            v.push_back({it.second, it.first});
         }
+
+        sort(v.rbegin(), v.rend());
 
         vector<int> ans;
 
-        while(k--) {
-            ans.push_back(pq.top().second);
-            pq.pop();
+        for(int i = 0; i < k; i++) {
+            ans.push_back(v[i].second);
         }
 
         return ans;
