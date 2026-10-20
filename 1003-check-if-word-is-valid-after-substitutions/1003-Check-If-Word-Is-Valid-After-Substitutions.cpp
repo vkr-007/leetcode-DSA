@@ -1,12 +1,19 @@
 class Solution {
 public:
     bool isValid(string s) {
-             while (s.find("abc") != string::npos) {
-            int i = s.find("abc");
-            s.erase(i, 3);
+     string temp="";
+     for(auto x:s){
+        temp+=x;
+        int n=temp.size();
+        if(n>=3 && temp.substr(n-3)=="abc"){
+           temp.pop_back();
+                temp.pop_back();
+                temp.pop_back();
+            }
         }
 
-        return s.empty(); 
-        //temp
+        return temp.empty();
+        
+     
     }
 };
